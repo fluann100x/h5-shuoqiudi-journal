@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于竞彩网 · 温和的故事视角</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Roboto', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #f9f7f4;
+            color: #2e2b28;
+            line-height: 1.7;
+        }
+
+        /* 深色头图 */
+        .hero {
+            background: linear-gradient(145deg, #1b1a1a 0%, #2d2a27 100%);
+            padding: 5rem 2rem 4rem;
+            text-align: center;
+            color: #f0ede9;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: #f9f7f4;
+            clip-path: ellipse(70% 100% at 50% 100%);
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 350;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+            color: #f5f0ea;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 680px;
+            margin: 0.8rem auto 0;
+            opacity: 0.8;
+            font-weight: 300;
+        }
+
+        .container {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 2.2rem 1.8rem 4rem;
+        }
+
+        /* 叙事段落 */
+        .story-block {
+            background: #ffffff;
+            padding: 2.4rem 2.8rem;
+            border-radius: 28px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.02), 0 2px 6px rgba(0,0,0,0.02);
+            margin-bottom: 2rem;
+        }
+
+        .story-block p {
+            margin-bottom: 1.2rem;
+            font-size: 1.05rem;
+            color: #3a3530;
+        }
+
+        .story-block p:last-child {
+            margin-bottom: 0;
+        }
+
+        .story-block strong {
+            font-weight: 500;
+            color: #1e1b18;
+        }
+
+        /* 链接色：强调 */
+        a {
+            color: #b85c3a;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s ease, color 0.2s ease;
+        }
+
+        a:hover {
+            color: #97462a;
+            border-bottom-color: #b85c3a;
+        }
+
+        /* 特点列表 — 温和卡片 */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.4rem;
+            margin: 2rem 0 1rem;
+        }
+
+        .feature-item {
+            background: #f6f3ef;
+            padding: 1.4rem 1.2rem;
+            border-radius: 20px;
+            transition: background 0.2s;
+        }
+
+        .feature-item:hover {
+            background: #efeae3;
+        }
+
+        .feature-item h4 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #2b2723;
+            margin-bottom: 0.4rem;
+            letter-spacing: 0.3px;
+        }
+
+        .feature-item p {
+            font-size: 0.95rem;
+            color: #4d4741;
+            line-height: 1.5;
+        }
+
+        /* FAQ 摘要 */
+        .faq-mini {
+            background: #f3efea;
+            padding: 1.8rem 2.2rem;
+            border-radius: 24px;
+            margin-top: 2rem;
+        }
+
+        .faq-mini h3 {
+            font-weight: 450;
+            font-size: 1.2rem;
+            color: #2f2a25;
+            margin-bottom: 0.8rem;
+        }
+
+        .faq-mini details {
+            margin-bottom: 0.7rem;
+            border-bottom: 1px dashed #d6cfc6;
+            padding-bottom: 0.7rem;
+        }
+
+        .faq-mini details:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .faq-mini summary {
+            cursor: pointer;
+            font-weight: 430;
+            color: #3e3731;
+            font-size: 1rem;
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .faq-mini summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-mini summary::before {
+            content: '▹';
+            color: #b85c3a;
+            margin-right: 8px;
+            font-size: 1.2rem;
+        }
+
+        .faq-mini details[open] summary::before {
+            content: '▿';
+        }
+
+        .faq-mini .answer {
+            margin-top: 0.5rem;
+            padding-left: 1.6rem;
+            color: #4f4943;
+            font-size: 0.95rem;
+        }
+
+        /* 温和结尾 */
+        .gentle-footer {
+            text-align: center;
+            margin: 3rem 0 1rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e6dfd7;
+            color: #6b6259;
+            font-size: 0.9rem;
+        }
+
+        .gentle-footer a {
+            color: #6b6259;
+            border-bottom-color: #c0b5a8;
+        }
+
+        .gentle-footer a:hover {
+            color: #b85c3a;
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .story-block {
+                padding: 1.6rem 1.4rem;
+            }
+            .container {
+                padding: 1.2rem 1rem 3rem;
+            }
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+            .faq-mini {
+                padding: 1.2rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<section class="hero">
+    <h1>从一个念头开始</h1>
+    <p>温和，诚恳，像傍晚翻开一本旧书。</p>
+</section>
+
+<main class="container">
+
+    <div class="story-block">
+        <p>
+            几年前，几位喜欢体育也喜欢数据的朋友聚在一起聊天。他们发现，市面上的信息常常要么太吵，要么太偏。<br>
+            于是他们想：能不能有一个地方，既不推销奇迹，也不贩卖焦虑，只是安安静静地帮人看懂体育竞猜的规则、赔率与常识？
+        </p>
+        <p>
+            这个念头后来慢慢生长，就成了今天的 <a href="https://homesporttery.com">竞彩网</a>。
+            它没有夸张的口号，也没有天花乱坠的承诺。它更像一个温和的向导，带着你从零开始理解每一场比赛背后的数字逻辑。
+        </p>
+    </div>
+
+    <div class="story-block">
+        <p><strong>我们相信，好的工具应该让人更清醒。</strong></p>
+        <p>
+            在 <a href="https://homesporttery.com">竞彩网</a> 上，你可以找到不同玩法的说明、常见术语的解析，以及一些真实但不浮夸的案例。
+            这里不教“必胜秘籍”，只展示可能性与风险——因为真正值得信赖的站点，不会给出超现实的诺言。
+        </p>
+    </div>
+
+    <!-- 特点卡片 -->
+    <div class="feature-grid">
+        <div class="feature-item">
+            <h4>📘 规则拆解</h4>
+            <p>把官方文档翻译成日常语言，没有晦涩条文，只有平实的说明。</p>
+        </div>
+        <div class="feature-item">
+            <h4>📊 赔率常识</h4>
+            <p>了解赔率如何生成，以及它反映的究竟是概率，还是情绪。</p>
+        </div>
+        <div class="feature-item">
+            <h4>🧭 场景引导</h4>
+            <p>无论你是刚接触还是已有经验，都能找到适合自己的阅读起点。</p>
+        </div>
+        <div class="feature-item">
+            <h4>🔍 可信来源</h4>
+            <p>所有信息均基于公开数据梳理，不编造，不夸大，不误导。</p>
+        </div>
+    </div>
+
+    <!-- FAQ 小摘要 -->
+    <div class="faq-mini">
+        <h3>一些你可能想问的</h3>
+
+        <details>
+            <summary>网站上的信息更新及时吗？</summary>
+            <div class="answer">
+                我们会根据体彩中心发布的最新规则和调整进行同步，但建议你同时关注官方公告。
+                <a href="https://homesporttery.com">竞彩网</a> 作为资料参考，尽力保持准确。
+            </div>
+        </details>
+
+        <details>
+            <summary>需要注册或付费才能使用吗？</summary>
+            <div class="answer">
+                不需要。所有内容免费阅读，也没有隐藏的收费项目。你随时可以来，随时可以走。
+            </div>
+        </details>
+
+        <details>
+            <summary>我能在上面直接投注吗？</summary>
+            <div class="answer">
+                不能。这里不提供任何投注入口，只做知识介绍与规则说明。理性参与，先从了解开始。
+            </div>
+        </details>
+    </div>
+
+    <!-- 温和结尾 -->
+    <div class="gentle-footer">
+        <p>愿你了解规则，也享受比赛本身。</p>
+        <p style="margin-top: 0.3rem;">
+            —— 来自 <a href="https://homesporttery.com">竞彩网</a> 的安静陪伴
+        </p>
+    </div>
+
+</main>
+
+</body>
+</html>
